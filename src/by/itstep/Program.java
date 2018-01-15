@@ -39,16 +39,7 @@ public class Program {
             showGameField(gameField);
             result = checkField(gameField);
         } while (result == CONTINUE);
-        switch (result) {
-            case WIN_1:
-                System.out.println("Победа "+ PLAYER_1);
-                break;
-            case WIN_2:
-                System.out.println("Победа "+ PLAYER_2);
-                break;
-            case DRAW:
-                System.out.println("Ничья "+ DRAW);
-        }
+        showResult(result);
     }
 
 
@@ -60,8 +51,8 @@ public class Program {
         int number;
         do {
             number = scanner.nextInt();
-            n = 2 - (number - 1) / 3;
-            m = (number - 1) % 3;
+            n = 2 - (number - 1) / 3; // строки
+            m = (number - 1) % 3; //столбцы
         } while (number < 1 || number > 9 || gameField[n][m] != EMPTY);
         gameField[n][m] = symbol;
     }
